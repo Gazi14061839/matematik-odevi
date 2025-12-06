@@ -7,15 +7,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
-            --card-bg: #1e293b;
+            --bg-gradient: linear-gradient(135deg, #0a0f24 0%, #1a163f 100%);
+            --card-bg: #181e36;
             --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --accent-purple: #a855f7;
-            --accent-pink: #ec4899;
-            --accent-orange: #f97316;
-            --success: #22c55e;
-            --danger: #ef4444;
+            --text-secondary: #a6b1c9;
+            
+            --theme1-main: #a855f7;
+            --theme1-accent: #ec4899;
+            --theme1-glow: rgba(236, 72, 153, 0.6);
+
+            --theme2-main: #3b82f6;
+            --theme2-accent: #2dd4bf;
+            --theme2-glow: rgba(45, 212, 191, 0.6);
+
+            --theme3-main: #22c55e;
+            --theme3-accent: #f97316;
+            --theme3-glow: rgba(249, 115, 22, 0.6);
+            
+            --success: #22c55e; 
+            --danger: #ef4444; 
         }
 
         body {
@@ -31,10 +41,10 @@
         }
 
         header {
-            background: linear-gradient(135deg, #4c1d95 0%, #701a75 100%);
+            background: linear-gradient(135deg, #5b21b6 0%, #9d174d 100%);
             padding: 4rem 1rem;
             text-align: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            box-shadow: 0 4px 25px rgba(168, 85, 247, 0.3);
             border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
@@ -42,7 +52,7 @@
             font-size: 3rem;
             margin: 0;
             font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
         }
 
         .subtitle {
@@ -61,66 +71,146 @@
         }
 
         .section-title {
-            background: linear-gradient(90deg, var(--accent-purple), var(--accent-pink));
+            background: linear-gradient(90deg, var(--theme1-main), var(--theme2-accent));
             padding: 1rem 1.5rem;
-            border-radius: 12px 12px 0 0;
+            border-radius: 12px;
             font-size: 1.4rem;
             font-weight: 700;
             display: flex;
             align-items: center;
             gap: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
         .content-card {
             background-color: var(--card-bg);
-            border-radius: 0 0 12px 12px;
+            border-radius: 16px;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            border: 2px solid transparent;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card-header {
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .card-header h3 {
+            margin: 0;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .card-body {
             padding: 2rem;
-            margin-bottom: 3rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            border: 1px solid rgba(255,255,255,0.05);
         }
 
-        .content-card h3 {
-            color: var(--accent-purple);
-            border-bottom: 2px solid rgba(168, 85, 247, 0.3);
-            padding-bottom: 10px;
-            margin-top: 1.5rem;
-            font-size: 1.3rem;
+        .theme-purple {
+            border-color: rgba(168, 85, 247, 0.3);
+        }
+        .theme-purple .card-header {
+            background: linear-gradient(90deg, rgba(168, 85, 247, 0.1), transparent);
+        }
+        .theme-purple h3 { color: var(--theme1-main); }
+        .theme-purple:hover {
+            transform: translateY(-7px) scale(1.02);
+            border-color: var(--theme1-accent);
+            box-shadow: 0 15px 40px var(--theme1-glow), 0 0 20px var(--theme1-main) inset;
         }
 
-        .content-card h3:first-child { margin-top: 0; }
+        .theme-blue {
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+        .theme-blue .card-header {
+            background: linear-gradient(90deg, rgba(59, 130, 246, 0.1), transparent);
+        }
+        .theme-blue h3 { color: var(--theme2-main); }
+        .theme-blue:hover {
+            transform: translateY(-7px) scale(1.02);
+            border-color: var(--theme2-accent);
+            box-shadow: 0 15px 40px var(--theme2-glow), 0 0 20px var(--theme2-main) inset;
+        }
+
+        .theme-green {
+            border-color: rgba(34, 197, 94, 0.3);
+        }
+        .theme-green .card-header {
+            background: linear-gradient(90deg, rgba(34, 197, 94, 0.1), transparent);
+        }
+        .theme-green h3 { color: var(--theme3-main); }
+        .theme-green:hover {
+            transform: translateY(-7px) scale(1.02);
+            border-color: var(--theme3-accent);
+            box-shadow: 0 15px 40px var(--theme3-glow), 0 0 20px var(--theme3-main) inset;
+        }
 
         .math-box {
-            background-color: #0f172a;
-            border-left: 4px solid var(--accent-pink);
+            background-color: #111827;
             padding: 1.5rem;
             margin: 1.5rem 0;
             font-family: 'Courier New', Courier, monospace;
             color: #e2e8f0;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .theme-blue .math-box { border-left: 4px solid var(--theme2-accent); }
+        .theme-green .math-box { border-left: 4px solid var(--theme3-accent); }
+
+
+        .elimination-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .elimination-list li {
+            background-color: #1f2937;
+            margin-bottom: 10px;
+            padding: 12px 15px;
+            border-left: 5px solid var(--theme3-main);
             border-radius: 6px;
+            transition: 0.3s;
+        }
+        .elimination-list li:hover {
+            background-color: #374151;
+            border-left-color: var(--theme3-accent);
+        }
+        .elimination-list strong {
+            color: var(--theme3-accent);
+            font-weight: 600;
         }
 
         .tool-wrapper {
-            margin-top: 2rem;
+            margin-top: 3rem;
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
             border: 1px solid rgba(255,255,255,0.05);
+            transition: transform 0.3s;
+        }
+        .tool-wrapper:hover {
+            transform: translateY(-5px);
         }
 
+        .prime-header { background: linear-gradient(90deg, #c2410c, #f97316); }
+        .ebob-header { background: linear-gradient(90deg, #0f766e, #2dd4bf); }
+
         .tool-header {
-            background: linear-gradient(90deg, #ea580c 0%, #c2410c 100%);
             padding: 1.5rem;
             font-size: 1.5rem;
             font-weight: 700;
             display: flex;
             align-items: center;
             gap: 15px;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
         .tool-body {
-            background-color: var(--card-bg);
+            background-color: #1e293b;
             padding: 3rem;
             text-align: center;
         }
@@ -136,172 +226,154 @@
         input[type="number"] {
             padding: 15px;
             font-size: 1.2rem;
-            border-radius: 8px;
+            border-radius: 12px;
             border: 2px solid #334155;
             background-color: #0f172a;
             color: white;
             width: 220px;
             text-align: center;
             font-family: 'Poppins', sans-serif;
-            transition: 0.3s;
+            transition: all 0.3s;
         }
-
+        
         input[type="number"]:focus {
             outline: none;
-            border-color: var(--accent-purple);
+            border-color: var(--theme2-accent);
+            box-shadow: 0 0 15px rgba(45, 212, 191, 0.3);
         }
 
         button {
             padding: 15px 35px;
             font-size: 1.1rem;
-            background: linear-gradient(90deg, #6366f1, #8b5cf6);
+            background: linear-gradient(90deg, var(--theme1-main), var(--theme1-accent));
             color: white;
             border: none;
-            border-radius: 8px;
+            border-radius: 12px;
             cursor: pointer;
             font-weight: 600;
-            transition: 0.3s;
+            transition: all 0.3s;
             font-family: 'Poppins', sans-serif;
-            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
         }
 
         button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.6);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(236, 72, 153, 0.6);
         }
 
-        #result-box {
+        #result-box, #ebob-result-box {
             display: none;
-            margin-top: 20px;
+            margin-top: 25px;
             border-radius: 12px;
             border: 2px solid transparent;
             overflow: hidden;
             animation: fadeIn 0.5s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .result-header {
-            padding: 15px;
-            font-size: 1.4rem;
-            font-weight: 700;
-            text-align: center;
-        }
-
-        .result-content {
-            background-color: rgba(0,0,0,0.2);
-            padding: 20px;
-            text-align: left;
-        }
-
-        .data-item {
-            background-color: rgba(255,255,255,0.05);
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 10px;
-        }
-
-        .data-label {
-            color: var(--accent-purple);
-            font-weight: 600;
-            display: block;
-            margin-bottom: 5px;
-            font-size: 0.9rem;
-        }
-
-        .data-value {
-            font-family: 'Courier New', monospace;
-            font-size: 1.1rem;
-        }
+        .result-header { padding: 20px; font-size: 1.4rem; font-weight: 700; text-align: center; }
+        .result-content { background-color: rgba(0,0,0,0.3); padding: 25px; text-align: left; }
+        .data-item { background-color: rgba(255,255,255,0.03); padding: 15px; border-radius: 8px; margin-bottom: 10px; border: 1px solid rgba(255,255,255,0.05); }
+        .data-label { color: var(--theme1-main); font-weight: 600; display: block; margin-bottom: 5px; font-size: 0.9rem; }
+        .ebob-label { color: var(--theme2-accent); font-weight: 600; display: block; margin-bottom: 5px; font-size: 0.9rem; }
+        .data-value { font-family: 'Courier New', monospace; font-size: 1.1rem; color: white; }
 
         footer {
-            background-color: #020617;
+            background-color: #0a0f24;
             text-align: center;
-            padding: 2rem;
+            padding: 3rem;
             margin-top: auto;
             border-top: 1px solid rgba(255,255,255,0.05);
         }
-
-        footer p {
-            color: var(--text-secondary);
-            margin: 5px 0;
-        }
-
-        footer strong { color: var(--accent-purple); }
+        footer p { color: var(--text-secondary); margin: 5px 0; }
+        footer strong { color: var(--theme1-main); }
+        .ebob-highlight { color: var(--theme2-accent); font-weight: bold; font-size: 1.2em; }
 
     </style>
 </head>
 <body>
 
-<header>
-    <h1>1 Neden Asal Değil?</h1>
-    <p class="subtitle">10. Sınıf Asal Sayılar</p>
-</header>
+    <header>
+        <h1>1 Neden Asal Değil?</h1>
+        <p class="subtitle">10. Sınıf Asal Sayılar ve Çarpanlar</p>
+    </header>
 
-<div class="container">
+    <div class="container">
 
-    <div class="section-title">
-        <span>📖</span> Konu Detayları ve İspatlar
-    </div>
-    <div class="content-card">
-
-        <h3>1. Tanım Yasası (İki Bölen Kuralı)</h3>
-        <p>Matematikte asal sayı tanımı çok kesindir: <strong>\"Bir sayının asal olabilmesi için tam olarak iki farklı pozitif tam sayı böleni olmalıdır (1 ve kendisi).\"</strong></p>
-        <ul>
-            <li><strong>7 Sayısı:</strong> Bölenleri {1, 7} → 2 Adet → <span style="color:var(--success)">ASAL</span></li>
-            <li><strong>13 Sayısı:</strong> Bölenleri {1, 13} → 2 Adet → <span style="color:var(--success)">ASAL</span></li>
-            <li><strong>1 Sayısı:</strong> Bölenleri {1} → Sadece 1 Adet → <span style="color:var(--danger)">ASAL DEĞİL</span></li>
-        </ul>
-
-        <h3>2. Aritmetiğin Temel Teoremi (Çarpanların Tekliği)</h3>
-        <p>Bu teorem der ki: <em>\"Her pozitif tam sayı, asal çarpanlarına <strong>tek bir şekilde</strong> ayrılabilir.\"</em></p>
-
-        <div class="math-box">
-            <strong>Örnek: 12 Sayısı</strong><br><br>
-            Gerçek Durum:<br>
-            12 = 2² × 3¹<br><br>
-            <strong>Eğer 1 Asal Olsaydı:</strong><br>
-            12 = 1 × 2² × 3¹<br>
-            12 = 1¹⁰ × 2² × 3¹<br>
-            12 = 1¹⁰⁰ × 2² × 3¹...<br><br>
-            Çarpanlara ayırmanın \"tekliği\" bozulurdu.
+        <div class="section-title">
+            <span>✨</span> Konu Detayları ve İspatlar
         </div>
 
-        <h3>3. Eratosthenes Kalburu (Eleme Yöntemi)</h3>
-        <p>Asal sayıları bulmak için kullanılan temel yöntemlerden biridir. Mantığı basittir: <strong>Bir asal sayıyı seç ve onun tüm katlarını ele.</strong> Sonunda geriye kalan tüm sayılar asaldır.</p>
-
-        <h3>📝 Yöntemin Adımları (n = 30)</h3>
-        <ol>
-            <li><strong>2’den 30’a kadar sayıları yaz.</strong></li>
-            <li><strong>2’yi işaretle ve katlarını ele:</strong> 4, 6, 8, 10...</li>
-            <li><strong>3’ü işaretle ve katlarını ele:</strong> 9, 15, 21, 27...</li>
-            <li><strong>5’i işaretle ve katlarını ele:</strong> 25</li>
-            <li><strong>7’yi işaretle.</strong> 7’nin karesi 49 olduğu için işlem durur.</li>
-        </ol>
-
-        <h3>🎯 Sonuç</h3>
-        <div class="math-box">
-            30’a kadar olan asal sayılar:  
-            <strong>2, 3, 5, 7, 11, 13, 17, 19, 23, 29</strong>
+        <div class="content-card theme-purple">
+            <div class="card-header">
+                <h3>1. Tanım Yasası (İki Bölen Kuralı)</h3>
+            </div>
+            <div class="card-body">
+                <p>Matematikte asal sayı tanımı çok kesindir: <strong>"Bir sayının asal olabilmesi için tam olarak iki farklı pozitif tam sayı böleni olmalıdır (1 ve kendisi)."</strong></p>
+                <ul>
+                    <li><strong>7 Sayısı:</strong> Bölenleri {1, 7} → 2 Adet → <span style="color:var(--success); font-weight:bold;">ASAL</span></li>
+                    <li><strong>13 Sayısı:</strong> Bölenleri {1, 13} → 2 Adet → <span style="color:var(--success); font-weight:bold;">ASAL</span></li>
+                    <li><strong>1 Sayısı:</strong> Bölenleri {1} → Sadece 1 Adet → <span style="color:var(--danger); font-weight:bold;">ASAL DEĞİL</span></li>
+                </ul>
+            </div>
         </div>
 
-        <h3>📌 Neden Yalnızca √n'e Kadar Elemek Yeterli?</h3>
-        <p>Bir sayı asal değilse mutlaka <strong>√n’den küçük bir çarpanı vardır.</strong>  
-        Bu yüzden √n’e kadar olan asal sayıların katlarını elemek yeterlidir.</p>
+        <div class="content-card theme-blue">
+            <div class="card-header">
+                <h3>2. Aritmetiğin Temel Teoremi (Çarpanların Tekliği)</h3>
+            </div>
+            <div class="card-body">
+                <p>Bu teorem der ki: <em>"Her pozitif tam sayı, asal çarpanlarına <strong>tek bir şekilde</strong> ayrılabilir."</em></p>
 
-        <div class="math-box">
-            Örneğin n = 30 → √30 ≈ 5.47  
-            Yani sadece 2, 3 ve 5’in katlarını elemek yeterlidir.
+                <div class="math-box">
+                    <strong>Örnek: 12 Sayısı</strong><br><br>
+                    Gerçek Durum:<br>
+                    12 = 2² × 3¹<br><br>
+                    <strong>Eğer 1 Asal Olsaydı:</strong><br>
+                    12 = 1 × 2² × 3¹<br>
+                    12 = 1¹⁰ × 2² × 3¹<br>
+                    12 = 1¹⁰⁰ × 2² × 3¹...<br><br>
+                    Çarpanlara ayırmanın "tekliği" bozulurdu.
+                </div>
+            </div>
         </div>
 
-    </div>
+        <div class="content-card theme-green">
+            <div class="card-header">
+                <h3>3. Eratosthenes Kalburu (Eleme Yöntemi)</h3>
+            </div>
+            <div class="card-body">
+                <p>Asal sayıları bulmak için kullanılan temel yöntemlerden biridir. Mantığı basittir: <strong>Bir asal sayıyı seç ve onun tüm katlarını ele.</strong> Sonunda geriye kalan tüm sayılar asaldır.</p>
 
+                <h4>📝 Yöntemin Adımları (n = 30)</h4>
+                <ol class="elimination-list">
+                    <li><strong>2’den 30’a kadar sayıları yaz.</strong></li>
+                    <li><strong>2’yi işaretle ve katlarını ele:</strong> 4, 6, 8, 10...</li>
+                    <li><strong>3’ü işaretle ve katlarını ele:</strong> 9, 15, 21, 27...</li>
+                    <li><strong>5’i işaretle ve katlarını ele:</strong> 25</li>
+                    <li><strong>7’yi işaretle.</strong> 7’nin karesi 49 olduğu için işlem durur.</li>
+                </ol>
+
+                <div class="math-box" style="border-left-color: var(--success); color: var(--success); font-weight: bold;">
+                    🎯 Sonuç (30’a kadar olan asallar):<br>
+                    2, 3, 5, 7, 11, 13, 17, 19, 23, 29
+                </div>
+
+                <p style="margin-top: 1rem; color: var(--text-secondary);"><strong>Neden Yalnızca √n'e Kadar?</strong><br>
+                Bir sayı asal değilse mutlaka √n’den küçük bir çarpanı vardır.
+                <div class="math-box" style="border-left-color: var(--success); color: var(--success); font-weight: bold;">
+                    Örneğin n = 30 için √30 ≈ 5.47 olduğundan, sadece 2, 3 ve 5’in katlarını elemek yeterlidir.<br>
+                </div>
+            </div>
+        </div>
 
         <div class="tool-wrapper">
-            <div class="tool-header">
+            <div class="tool-header prime-header">
                 <span>🚀</span> İnteraktif Araç: Asal Sayı Kontrolcüsü
             </div>
             <div class="tool-body">
@@ -313,7 +385,25 @@
                 </div>
 
                 <div id="result-box">
-                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tool-wrapper" style="margin-top: 3rem;">
+            <div class="tool-header ebob-header">
+                <span>🧮</span> İnteraktif Araç: EBOB & EKOK Hesaplayıcı
+            </div>
+            <div class="tool-body">
+                <p style="margin-bottom: 2rem;">İki sayı girin, bu sayıların En Büyük Ortak Bölenini (EBOB) ve En Küçük Ortak Katını (EKOK) bulun.</p>
+                
+                <div class="input-group">
+                    <input type="number" id="num1" placeholder="1. Sayı (Örn: 24)" min="1">
+                    <input type="number" id="num2" placeholder="2. Sayı (Örn: 36)" min="1">
+                    <button onclick="calculateEbobEkok()" style="background: linear-gradient(90deg, var(--theme2-main), var(--theme2-accent)); box-shadow: 0 4px 15px rgba(45, 212, 191, 0.4);">Hesapla</button>
+                </div>
+
+                <div id="ebob-result-box">
+                </div>
             </div>
         </div>
 
@@ -361,6 +451,7 @@
 
             box.style.backgroundColor = headerBg;
             box.style.borderColor = borderColor;
+            box.style.boxShadow = isPrime ? "0 0 20px rgba(34, 197, 94, 0.4)" : "0 0 20px rgba(239, 68, 68, 0.4)";
 
             let headerHTML = `
                 <div class="result-header" style="color: ${borderColor}">
@@ -375,31 +466,7 @@
                 if (num % i === 0) divisors.push(i);
             }
 
-            let factorizationStr = "";
-            if (num === 1) {
-                factorizationStr = "Yoktur";
-            } else if (isPrime) {
-                factorizationStr = `${num}<sup>1</sup>`;
-            } else {
-                let tempNum = num;
-                let factors = {};
-                
-                for (let i = 2; i * i <= tempNum; i++) {
-                    while (tempNum % i === 0) {
-                        factors[i] = (factors[i] || 0) + 1;
-                        tempNum /= i;
-                    }
-                }
-                if (tempNum > 1) {
-                    factors[tempNum] = (factors[tempNum] || 0) + 1;
-                }
-
-                let parts = [];
-                for (let base in factors) {
-                    parts.push(`${base}<sup>${factors[base]}</sup>`);
-                }
-                factorizationStr = `${num} = ` + parts.join(" × ");
-            }
+            let factorizationStr = getFactorizationString(num);
 
             box.innerHTML = `
                 ${headerHTML}
@@ -411,6 +478,81 @@
                     <div class="data-item">
                         <span class="data-label">Asal Çarpanlara Ayırma:</span>
                         <span class="data-value">${factorizationStr}</span>
+                    </div>
+                </div>
+            `;
+        }
+
+        function getFactorizationString(num) {
+            if (num === 1) return "Yoktur";
+            
+            let tempNum = num;
+            let factors = {};
+            
+            for (let i = 2; i * i <= tempNum; i++) {
+                while (tempNum % i === 0) {
+                    factors[i] = (factors[i] || 0) + 1;
+                    tempNum /= i;
+                }
+            }
+            if (tempNum > 1) {
+                factors[tempNum] = (factors[tempNum] || 0) + 1;
+            }
+
+            let parts = [];
+            for (let base in factors) {
+                parts.push(`${base}<sup>${factors[base]}</sup>`);
+            }
+            return `${num} = ` + parts.join(" × ");
+        }
+
+        function calculateEbobEkok() {
+            const val1 = document.getElementById('num1').value;
+            const val2 = document.getElementById('num2').value;
+            const num1 = parseInt(val1);
+            const num2 = parseInt(val2);
+            const box = document.getElementById('ebob-result-box');
+
+            if (val1 === "" || val2 === "" || isNaN(num1) || isNaN(num2) || num1 < 1 || num2 < 1) {
+                alert("Lütfen iki tane pozitif tam sayı giriniz.");
+                return;
+            }
+
+            box.style.display = "block";
+
+            let a = num1, b = num2;
+            while (b !== 0) {
+                let temp = b;
+                b = a % b;
+                a = temp;
+            }
+            let ebob = a;
+
+            let ekok = (num1 * num2) / ebob;
+
+            box.style.backgroundColor = "rgba(45, 212, 191, 0.1)";
+            box.style.borderColor = "#2dd4bf";
+            box.style.boxShadow = "0 0 20px rgba(45, 212, 191, 0.4)";
+
+            box.innerHTML = `
+                <div class="result-header" style="color: #2dd4bf">
+                    <span style="font-size: 2rem; display:block; margin-bottom:5px;">🧮</span>
+                    Sonuçlar
+                    <div style="font-size: 1rem; color: #e2e8f0; font-weight:400; margin-top:5px;">${num1} ve ${num2} sayıları için:</div>
+                </div>
+                <div class="result-content">
+                    <div class="data-item">
+                        <span class="ebob-label">Sayıların Çarpanları:</span>
+                        <div class="data-value" style="margin-bottom:5px;">${getFactorizationString(num1)}</div>
+                        <div class="data-value">${getFactorizationString(num2)}</div>
+                    </div>
+                    <div class="data-item" style="border-left: 4px solid #2dd4bf; background: rgba(45, 212, 191, 0.05);">
+                        <span class="ebob-label">EBOB (${num1}, ${num2}):</span>
+                        <span class="data-value ebob-highlight">${ebob}</span>
+                    </div>
+                    <div class="data-item" style="border-left: 4px solid #a855f7; background: rgba(168, 85, 247, 0.05);">
+                        <span class="ebob-label" style="color: #a855f7">EKOK (${num1}, ${num2}):</span>
+                        <span class="data-value ebob-highlight" style="color: #a855f7">${ekok}</span>
                     </div>
                 </div>
             `;
